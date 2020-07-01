@@ -34,7 +34,7 @@ const isElementInViewport = (el) => {
   );
 };
 
-export default class MessageListItem extends PureComponent {  // // here
+export default class MessageListItem extends PureComponent {
   constructor(props) {
     super(props);
 

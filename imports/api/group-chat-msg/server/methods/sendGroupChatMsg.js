@@ -24,7 +24,8 @@ const parseMessage = (message) => {
   // Replace flash links to flash valid ones
   parsedMessage = parsedMessage.replace(RegexWebUrl, "<a href='event:$&'><u>$&</u></a>");
 
-  parsedMessage = parsedMessage.replace(/(#[^#]+#)/g, "<font color=\"red\">$1</font>");
+  // added by kialan: tag example
+  // parsedMessage = parsedMessage.replace(/(#[^#]+#)/g, "<font color=\"red\">$1</font>");
   return parsedMessage;
 };
 

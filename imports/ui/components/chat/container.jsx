@@ -57,7 +57,7 @@ class ChatContainer extends PureComponent {
   }
 }
 
-export default injectIntl(withTracker(({ intl }) => { // // this
+export default injectIntl(withTracker(({ intl }) => {
   const chatID = Session.get('idChatOpen');
   let messages = [];
   let isChatLocked = ChatService.isChatLocked(chatID);
