@@ -1,2 +1,2 @@
 # bbb-html5-client
-xlm-team html5 client development
+xlm-team html5 client repo
