@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Icon from '/imports/ui/components/icon/component';
 import UserAvatar from '/imports/ui/components/user-avatar/component';
 import Message from './message/component';
+import MessageWithDropdown from './message-with-dropdown/component'
 
 import { styles } from './styles';
 
@@ -65,7 +66,7 @@ class MessageListItem extends Component {
 
     if (!scrollArea && nextScrollArea) return true;
 
-    const hasNewMessage = messages.length !== nextMessages.length;
+    const hasNewMessage = messages !== nextMessages;//messages.length !== nextMessages.length;
     const hasIdChanged = messageId !== nextMessageId;
     const hasUserChanged = user && nextUser
       && (user.isModerator !== nextUser.isModerator || user.isOnline !== nextUser.isOnline);
@@ -149,7 +150,7 @@ class MessageListItem extends Component {
             </div>
             <div className={styles.messages} data-test="chatUserMessage">
               {chats.map(message => (
-                <Message
+                <MessageWithDropdown
                   className={(regEx.test(message.text) ? styles.hyperlink : styles.message)}
                   key={message.id}
                   text={message.text}
@@ -159,6 +160,28 @@ class MessageListItem extends Component {
                   handleReadMessage={handleReadMessage}
                   scrollArea={scrollArea}
                 />
+
+                // <MessageWithContextMenu
+                //   className={(regEx.test(message.text) ? styles.hyperlink : styles.message)}
+                //   key={message.id}
+                //   text={message.text}
+                //   time={message.time}
+                //   chatAreaId={chatAreaId}
+                //   lastReadMessageTime={lastReadMessageTime}
+                //   handleReadMessage={handleReadMessage}
+                //   scrollArea={scrollArea}
+                // />
+
+                // <Message
+                //   className={(regEx.test(message.text) ? styles.hyperlink : styles.message)}
+                //   key={message.id}
+                //   text={message.text}
+                //   time={message.time}
+                //   chatAreaId={chatAreaId}
+                //   lastReadMessageTime={lastReadMessageTime}
+                //   handleReadMessage={handleReadMessage}
+                //   scrollArea={scrollArea}
+                // />
               ))}
             </div>
           </div>
